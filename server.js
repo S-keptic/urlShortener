@@ -1,9 +1,13 @@
 const express = require('express');
+const urlRoutes = require('./routes/urlRoutes.js');
 require('dotenv').config();
 const app = express();
 const { sequelize } = require('./models');
 
 const PORT = process.env.PORT || 5000;
+
+app.use(express.json());
+app.use('/api', urlRoutes);  
 
 sequelize.sync({ alter: true })
   .then(() => {
