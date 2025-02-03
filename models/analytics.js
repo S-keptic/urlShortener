@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, STRING } = require('sequelize');
 const sequelize = require('../config/db.js');
 
 const Analytics = sequelize.define('Analytics', {
@@ -6,6 +6,21 @@ const Analytics = sequelize.define('Analytics', {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
   },
+  ip_address:{
+    type:DataTypes.STRING,
+  },
+  user_agent:{
+    type:DataTypes.STRING,
+  },
+  referer:{
+    type:DataTypes.STRING,
+  },
+  country:{
+    type:DataTypes.STRING,
+  },
+  city:{
+    type:DataTypes.STRING,
+  }
 });
 
 module.exports = Analytics;
