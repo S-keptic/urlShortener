@@ -3,11 +3,13 @@ const urlRoutes = require('./routes/urlRoutes.js');
 require('dotenv').config();
 const app = express();
 const { sequelize } = require('./models');
+const authRoutes = require('./routes/authRoutes.js')
 
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use('/api', urlRoutes);  
+app.use('/api/auth',authRoutes);
 
 sequelize.sync({ alter: true })
   .then(() => {
